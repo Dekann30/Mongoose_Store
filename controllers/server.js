@@ -6,6 +6,7 @@ const app = express()
 const PORT = process.env.PORT || 3002
 const methodOverride = require('method-override')
 const morgan = require('morgan')
+const Product = (require('/models/product.js'))
 const DATABASE_URL = process.env.DATABASE_URL
 const mongoose = require('mongoose')
 const db = mongoose.connection
@@ -21,3 +22,28 @@ app.use(express.urlencoded({extended:true}))
 app.use(morgan('tiny'))
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
+
+//Seed Route
+const productsSeed = require('/models/products_seed.js')
+app.get('/products/seed', (req,res)=>{
+    Product.deleteMany({}, (error, allProducts)=> {})
+
+    Product.create(productsSeed, (error, data)=>{
+        res.redirect('/products')
+    })
+})
+
+//INDUCES
+//Index
+
+//New
+
+//Delete
+
+//Update
+
+//Create
+
+//Edit
+
+//Show
