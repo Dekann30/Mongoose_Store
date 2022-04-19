@@ -61,5 +61,11 @@ app.post('/products', (req,res)=>{
 //Edit
 
 //Show
+app.get('/products/:id', (req,res)=>{
+    Product.findById(req.params.id, (err, foundProduct)=>{
+        res.render('show.ejs', {oneProduct: foundProduct})
+    })
+})
+
 
 app.listen(PORT, ()=>console.log('Express is connected'))

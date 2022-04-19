@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %> 
+<body>
+    <button type="button" onclick="location.href='/products'">Back to Products List</button>
+    <h1><%=oneProduct.name%></h1>
+    <div class="main">
+        <img src='<%= oneProduct.img %>'/><br/>
+        <%= oneProduct.description %><br/>
+        Price: $<%= oneProduct.price %>  Qty: <%=oneProduct.qty%>
+    </div>
+</body>
+</html>
