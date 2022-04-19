@@ -6,7 +6,11 @@
    <button type="button" onclick="location.href='/products/new'">Add a New Product</button>
    <ul>
         <% products.forEach(product => { %>
-        <li> <a href='/products/<%=product._id%>'><%=product.name%></a></li>
+        <li> <a class="name" href='/products/<%=product._id%>'><%=product.name%></a>
+        <form action="/products/<%=product._id%>?_method=delete" method="post">
+            <input type="submit" value="Delete"/>
+        </form>
+        </li>
         <% }) %>
    </ul>
 </body>
