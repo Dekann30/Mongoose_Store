@@ -3,7 +3,7 @@
 <%- include('./partials/head.ejs') %> 
 <body>
    <h1>Edit Product</h1>
-   <form>
+   <form action="/products/<%=product._id%>?_method=put" method="post">
       Name:<input type="text" name="name" value='<%= product.name%>' /><br/>
       Description:<input type="text" name="description" value='<%= product.description%>' /><br/>
       Image URL:<input type="text" name="img" value='<%= product.img%>' /><br/>

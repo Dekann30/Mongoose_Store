@@ -55,6 +55,12 @@ app.delete('/products/:id', (req,res)=>{
 })
 
 //Update
+app.put('/products/:id', (req,res)=>{
+    Product.findByIdAndUpdate(req.params.id, req.body, {new: true},
+        (error, editedProduct)=>{
+            res.redirect(`/products/${req.params.id}`)
+        })
+})
 
 //Create
 app.post('/products', (req,res)=>{
