@@ -37,7 +37,9 @@ app.get('/products/seed', (req,res)=>{
 //INDUCES
 //Index
 app.get('/products', (req,res)=>{
-    res.send('this works?')
+    Product.find({}, (error, allProducts)=>{
+        res.render('index.ejs', {products: allProducts})
+    })
 })
 
 //New
@@ -52,7 +54,7 @@ app.get('/products/new', (req,res)=>{
 //Create
 app.post('/products', (req,res)=>{
     Product.create(req.body, (error, createdProduct)=>{
-        res.send(createdProduct)
+        res.redirect('/products')
     })
 })
 

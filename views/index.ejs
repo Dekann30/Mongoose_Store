@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %> 
+<body>
+   <h1>Mongoose Product List</h1> 
+   <button type="button" onclick="location.href='/products/new'">Add a New Product</button>
+   <ul>
+        <% products.forEach(product => { %>
+        <li><%=product.name%></li>
+        <% }) %>
+   </ul>
+</body>
+</html>
