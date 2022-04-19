@@ -7,9 +7,12 @@
    <ul>
         <% products.forEach(product => { %>
         <li> <a class="name" href='/products/<%=product._id%>'><%=product.name%></a>
-        <form action="/products/<%=product._id%>?_method=delete" method="post">
+        <div class="debuttons">
+            <form action="/products/<%=product._id%>?_method=delete" method="post">
             <input type="submit" value="Delete"/>
-        </form>
+            </form>
+            <button type="button" onclick="location.href='/products/<%=product._id%>/edit'">Edit</button>
+        </div>
         </li>
         <% }) %>
    </ul>

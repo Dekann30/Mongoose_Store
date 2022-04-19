@@ -64,6 +64,13 @@ app.post('/products', (req,res)=>{
 })
 
 //Edit
+app.get('/products/:id/edit', (req,res)=>{
+    Product.findById(req.params.id, (error, editedProduct)=>{
+        res.render('edit.ejs', {
+            product: editedProduct
+        })
+    })
+})
 
 //Show
 app.get('/products/:id', (req,res)=>{
