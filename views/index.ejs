@@ -3,10 +3,12 @@
 <%- include('./partials/head.ejs') %> 
 <body>
    <h1>Mongoose Product List</h1> 
-   <button type="button" onclick="location.href='/products/new'">Add a New Product</button>
+   <button class="topnav" type="button" onclick="location.href='/products/new'">Add a New Product</button>
    <ul>
         <% products.forEach(product => { %>
-        <li> <a class="name" href='/products/<%=product._id%>'><%=product.name%></a>
+        <li> 
+            <a class="name" href='/products/<%=product._id%>'><h2><%=product.name%></h2></a>
+            <a class="name" href='/products/<%=product._id%>'><img src='<%=product.img%>' alt="picture of <%=product.name%>"/></a>
         <div class="debuttons">
             <form action="/products/<%=product._id%>?_method=delete" method="post">
             <input type="submit" value="Delete"/>
