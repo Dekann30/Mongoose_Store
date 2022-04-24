@@ -8,6 +8,17 @@
         <img src='<%= oneProduct.img %>'/><br/>
         <%= oneProduct.description %><br/>
         Price: $<%= oneProduct.price %>  Qty: <%=oneProduct.qty%>
+        <button type="button" class="<%=oneProduct.qty > 0? 'yesstock': 'nostock'%>">Buy</button>
+    </div>
+    <div class="hidebuy">
+        <h4>How Many Would you Like to Buy?</h4>
+        <form action="/buy/<%=oneProduct._id%>?_method=put" method="post">
+            <input type="number" name="qty">
+            <input type="submit" value="Buy">
+        </form>
+    </div>
+    <div class="<%=oneProduct.qty > 0? 'hide': 'show'%> ">
+        <h4>Out of Stock</h4>
     </div>
 </body>
 </html>

@@ -13,14 +13,6 @@ body{
     align-items: center;
 }
 
-.main,
-h1{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 img{
     height:200px;
     width:200px;
@@ -53,3 +45,26 @@ h2{
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+.buy{
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.showbuy,
+.show,
+.main,
+h1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidebuy,
+.hide,
+.nostock{
+    display: none;
+}
+
+

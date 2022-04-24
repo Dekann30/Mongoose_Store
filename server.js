@@ -6,7 +6,7 @@ const app = express()
 const PORT = process.env.PORT || 3002
 const methodOverride = require('method-override')
 const morgan = require('morgan')
-const Product = (require('./models/product.js'))
+const Product = require('./models/product.js')
 const DATABASE_URL = process.env.DATABASE_URL
 const mongoose = require('mongoose')
 const db = mongoose.connection
@@ -74,6 +74,18 @@ app.get('/products/:id/edit', (req,res)=>{
     Product.findById(req.params.id, (error, editedProduct)=>{
         res.render('edit.ejs', {
             product: editedProduct
+        })
+    })
+})
+
+//buy route
+app.put('/buy/:id', (req,res)=>{
+    Product.findById(req.params.id, (err, buyProduct)=>{
+        let productQty = buyProduct.qty
+        let newQty = productQty - req.body.qty
+        req.body.qty = newQty
+        Product.findByIdAndUpdate(req.params.id, req.body, (err)=>{
+            res.redirect(`/products/${req.params.id}`)
         })
     })
 })
